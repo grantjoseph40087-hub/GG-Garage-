@@ -350,7 +350,47 @@ Enter the job reference supplied by GG Garage.
 
 </section>
 
+<!-- ADMIN DASHBOARD -->
+<section id="admin">
 
+<h2>🔐 GG Garage Admin</h2>
+
+<div class="notice">
+<b>Garage Job Manager</b><br>
+Manage your current vehicle jobs from this device.
+</div>
+
+<div class="panel">
+
+<input id="an" placeholder="Customer name">
+<input id="ac" placeholder="Vehicle make & model">
+<input id="ar" placeholder="Job reference">
+<input id="ap" type="number" placeholder="Quote amount (R)">
+<input id="adp" type="number" placeholder="Deposit received (R)">
+
+<select id="ast">
+<option>Quote requested</option>
+<option>Booking confirmed</option>
+<option>Vehicle received</option>
+<option>Panelbeating</option>
+<option>Paint preparation</option>
+<option>Painting</option>
+<option>Quality check</option>
+<option>Ready for collection</option>
+<option>Collected</option>
+</select>
+
+<button onclick="addJob()">➕ Save Job</button>
+
+</div>
+
+<h3>📋 Current Jobs</h3>
+
+<div id="jobs"></div>
+
+<button class="secondary" onclick="show('home')">← Back to Home</button>
+
+</section>
 <!-- REVIEWS -->
 <section id="reviews">
 
@@ -369,7 +409,9 @@ Send your feedback to us on WhatsApp and help other customers discover GG Garage
 </button>
 
 <button class="secondary" onclick="show('home')">← Back</button>
-
+<button class="secondary" onclick="show('admin')">
+🔐 Garage Admin
+</button>
 </section>
 
 
@@ -497,7 +539,122 @@ let message=
 wa(message);
 
 }
+function addJob(){
 
+const name=$('an').value.trim();
+const car=$('ac').value.trim();
+const ref=$('ar').value.trim();
+const quoteAmount=$('ap').value;
+const deposit=$('adp').value;
+const status=$('ast').value;
+
+if(!name||!car||!ref){
+
+alert('Please enter the customer, vehicle and job reference.');
+return;
+
+}
+
+const job={
+name:name,
+car:car,
+ref:ref,
+quote:quoteAmount||0,
+deposit:deposit||0,
+status:status,
+created:new Date().toLocaleString()
+};
+
+let jobs=JSON.parse(localStorage.getItem('gg_jobs')||'[]');
+
+jobs.push(job);
+
+localStorage.setItem('gg_jobs',JSON.stringify(jobs));
+
+$('an').value='';
+$('ac').value='';
+$('ar').value='';
+$('ap').value='';
+$('adp').value='';
+
+renderJobs();
+
+alert('Job '+ref+' saved successfully! 🔥');
+
+}
+
+function renderJobs(){
+
+const box=$('jobs');
+
+if(!box)return;
+
+let jobs=JSON.parse(localStorage.getItem('gg_jobs')||'[]');
+
+if(jobs.length===0){
+
+box.innerHTML=
+'<div class="panel">No jobs saved yet.</div>';
+
+return;
+
+}
+
+box.innerHTML=jobs.map((job,index)=>{
+
+const balance=
+Number(job.quote)-Number(job.deposit);
+
+return `
+<div class="panel" style="margin-bottom:12px">
+
+<div style="color:#f5c542;font-weight:900">
+${job.ref}
+</div>
+
+<p>
+<b>Customer:</b> ${job.name}<br>
+<b>Vehicle:</b> ${job.car}<br>
+<b>Status:</b> ${job.status}
+</p>
+
+<p>
+<b>Quote:</b> R${job.quote}<br>
+<b>Deposit:</b> R${job.deposit}<br>
+<b>Balance:</b> R${balance}
+</p>
+
+<small style="color:#777">
+Created: ${job.created}
+</small>
+
+<button onclick="deleteJob(${index})"
+class="secondary">
+🗑️ Delete Job
+</button>
+
+</div>
+`;
+
+}).join('');
+
+}
+
+function deleteJob(index){
+
+if(!confirm('Delete this job?'))return;
+
+let jobs=JSON.parse(localStorage.getItem('gg_jobs')||'[]');
+
+jobs.splice(index,1);
+
+localStorage.setItem('gg_jobs',JSON.stringify(jobs));
+
+renderJobs();
+
+}
+
+renderJobs();
 function saveJob(){
 
 let ref=$('jr').value.trim();
@@ -526,7 +683,11 @@ if('serviceWorker' in navigator){
 navigator.serviceWorker.register('sw.js');
 
 }
+if('serviceWorker' in navigator){
 
+navigator.serviceWorker.register('sw.js');
+
+}
 </script>
 
 </body>
