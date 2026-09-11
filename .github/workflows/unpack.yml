@@ -11,21 +11,20 @@ permissions:
 jobs:
   unpack:
     runs-on: ubuntu-latest
+
     steps:
       - name: Get repository
         uses: actions/checkout@v4
 
-      - name: Unpack app
+      - name: Unpack GG Garage V2
         run: |
-          unzip -o GG_Garage_Phone_App.zip -d appfiles
-          cp appfiles/* .
-          rm -rf appfiles
-          rm GG_Garage_Phone_App.zip
+          unzip -o GG_Garage_V2.zip
+          rm GG_Garage_V2.zip
 
       - name: Save files
         run: |
           git config user.name "GG Garage"
           git config user.email "actions@github.com"
           git add .
-          git commit -m "Build GG Garage web app files" || exit 0
+          git commit -m "Update GG Garage V2" || echo "No changes to commit"
           git push
