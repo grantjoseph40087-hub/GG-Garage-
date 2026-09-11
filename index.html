@@ -444,22 +444,31 @@ return;
 
 }
 
+const ref='GG-'+Date.now().toString().slice(-6);
+
+localStorage.setItem('gg_last_quote',ref);
+
 let message=
 '🚗 GG GARAGE QUOTE REQUEST\n\n'+
+'Reference: '+ref+'\n'+
 'Name: '+name+'\n'+
 'Phone: '+phone+'\n'+
 'Vehicle: '+car+'\n'+
 'Year: '+year+'\n'+
 'Service: '+service+'\n'+
-'Damage: '+damage+'\n'+
+'Damage: '+(damage||'Not specified')+'\n'+
 'Photos selected: '+photos+'\n\n'+
 'Please advise on the next step.';
+
+alert(
+'Quote request '+ref+' is ready!\\n\\n'+
+'WhatsApp will open next.\\n\\n'+
+'Please attach your damage photos in WhatsApp.'
+);
 
 wa(message);
 
 }
-
-function book(){
 
 const name=$('bn').value.trim();
 const phone=$('bp').value.trim();
