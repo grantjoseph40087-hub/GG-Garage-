@@ -182,7 +182,9 @@ Request your quote directly from your phone.
 </div>
 
 </div>
-
+<button class="secondary" onclick="show('admin')">
+🔐 Garage Admin
+</button>
 <button class="whatsapp" onclick="wa('Hi GG Garage, I would like to enquire about a car repair.')">
 💬 WhatsApp GG Garage
 </button>
@@ -389,8 +391,50 @@ Manage your current vehicle jobs from this device.
 <div id="jobs"></div>
 
 <button class="secondary" onclick="show('home')">← Back to Home</button>
+<!-- ADMIN DASHBOARD -->
+<section id="admin">
+
+<h2>🔐 GG Garage Admin</h2>
+
+<div class="notice">
+<b>Garage Job Manager</b><br>
+Manage your current vehicle jobs from this device.
+</div>
+
+<div class="panel">
+
+<input id="an" placeholder="Customer name">
+<input id="ac" placeholder="Vehicle make & model">
+<input id="ar" placeholder="Job reference">
+<input id="ap" type="number" placeholder="Quote amount (R)">
+<input id="adp" type="number" placeholder="Deposit received (R)">
+
+<select id="ast">
+<option>Quote requested</option>
+<option>Booking confirmed</option>
+<option>Vehicle received</option>
+<option>Panelbeating</option>
+<option>Paint preparation</option>
+<option>Painting</option>
+<option>Quality check</option>
+<option>Ready for collection</option>
+<option>Collected</option>
+</select>
+
+<button onclick="addJob()">➕ Save Job</button>
+
+</div>
+
+<h3>📋 Current Jobs</h3>
+
+<div id="jobs"></div>
+
+<button class="secondary" onclick="show('home')">
+← Back to Home
+</button>
 
 </section>
+
 <!-- REVIEWS -->
 <section id="reviews">
 
