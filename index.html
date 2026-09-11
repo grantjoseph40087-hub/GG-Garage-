@@ -1,36 +1,40 @@
-<!doctype html>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#090909"><link rel="manifest" href="manifest.json"><title>GG Garage</title>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080808"><link rel="manifest" href="manifest.json"><title>GG Garage</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#090909;color:#fff;font-family:Arial,sans-serif}header{text-align:center;padding:28px 15px;border-bottom:1px solid #292929}.logo{font-size:30px;font-weight:900;letter-spacing:4px;color:#f4c542}.tag{font-size:10px;letter-spacing:3px;margin-top:5px}.wrap{max-width:620px;margin:auto;padding:20px}.hero{padding:10px 0 20px}.hero h1{font-size:30px;margin:0 0 8px}.hero p{color:#aaa;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.card,.panel{background:#171717;border:1px solid #303030;border-radius:16px;padding:17px}.card{min-height:120px}.ico{font-size:28px}.card b{display:block;margin-top:9px}.card small{color:#999}button{width:100%;padding:15px;border:0;border-radius:12px;background:#f4c542;color:#111;font-weight:800;font-size:16px;margin-top:12px}input,textarea{width:100%;padding:13px;margin:7px 0 10px;background:#111;color:#fff;border:1px solid #3a3a3a;border-radius:10px}textarea{min-height:100px}section{display:none}section.active{display:block}.back{background:#292929;color:#fff}.status{background:#1b1b1b;border-left:4px solid #f4c542;padding:12px;margin:8px 0}footer{text-align:center;color:#777;padding:30px 0;font-size:12px}
-</style></head><body>
-<header><div class="logo">GG GARAGE</div><div class="tag">YOUR CAR. OUR CRAFT.</div></header><div class="wrap">
+*{box-sizing:border-box}body{margin:0;background:#080808;color:#fff;font-family:Arial,sans-serif}header{text-align:center;padding:26px 15px;border-bottom:1px solid #292929}.logo{font-size:30px;font-weight:900;letter-spacing:4px;color:#f5c542}.tag{font-size:10px;letter-spacing:3px}.wrap{max-width:650px;margin:auto;padding:18px}.hero{padding:12px 2px 20px}.hero h1{font-size:29px;margin:0 0 8px}.hero p,.muted{color:#aaa;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.card,.panel{background:#151515;border:1px solid #303030;border-radius:17px;padding:17px}.card{min-height:118px}.ico{font-size:27px}.card b{display:block;margin-top:9px}.card small{color:#999}button{width:100%;padding:15px;border:0;border-radius:12px;background:#f5c542;color:#111;font-weight:800;font-size:16px;margin-top:11px}button.secondary{background:#292929;color:#fff}input,textarea,select{width:100%;padding:13px;margin:7px 0 10px;background:#101010;color:#fff;border:1px solid #3b3b3b;border-radius:10px}textarea{min-height:90px}section{display:none}section.active{display:block}.status{background:#1a1a1a;border-left:4px solid #f5c542;padding:12px;margin:8px 0}.notice{background:#201d12;border:1px solid #4d431e;padding:13px;border-radius:12px;margin:12px 0}footer{text-align:center;color:#777;padding:30px 0;font-size:12px}.pill{display:inline-block;padding:7px 10px;border-radius:20px;background:#252525;margin:3px}
+</style></head><body><header><div class="logo">GG GARAGE</div><div class="tag">YOUR CAR. OUR CRAFT.</div></header><div class="wrap">
+
 <section id="home" class="active"><div class="hero"><h1>Premium Car Repairs</h1><p>Panelbeating, spray painting, dents and scratches in Mossel Bay.</p></div>
 <div class="grid">
-<div class="card" onclick="show('quote')"><div class="ico">📸</div><b>Get a Quote</b><small>Send damage details</small></div>
-<div class="card" onclick="show('booking')"><div class="ico">📅</div><b>Book a Repair</b><small>Request a date</small></div>
-<div class="card" onclick="show('services')"><div class="ico">🔧</div><b>Services</b><small>What we do</small></div>
-<div class="card" onclick="show('track')"><div class="ico">🚗</div><b>Track My Car</b><small>Repair stages</small></div></div>
+<div class="card" onclick="show('quote')"><div class="ico">📸</div><b>Get a Quote</b><small>Describe damage & request an estimate</small></div>
+<div class="card" onclick="show('booking')"><div class="ico">📅</div><b>Book a Repair</b><small>Choose a preferred date</small></div>
+<div class="card" onclick="show('services')"><div class="ico">🔧</div><b>Services</b><small>Panelbeating & paint services</small></div>
+<div class="card" onclick="show('track')"><div class="ico">🚗</div><b>Track My Car</b><small>Save your job reference</small></div></div>
 <button onclick="wa('Hi GG Garage, I would like to enquire about a car repair.')">💬 WhatsApp GG Garage</button>
 <div class="panel" style="margin-top:14px">📍 Mossel Bay<br>📞 084 823 3375</div></section>
 
-<section id="quote"><h2>📸 Get a Quote</h2><p>Upload a photo and describe the damage. Final pricing follows inspection.</p>
-<input id="qcar" placeholder="Vehicle e.g. VW Polo 2018"><textarea id="qdamage" placeholder="Describe the damage"></textarea><input type="file" accept="image/*" capture="environment">
-<button onclick="quote()">Send Quote Request</button><button class="back" onclick="show('home')">← Back</button></section>
+<section id="quote"><h2>📸 Get a Quote</h2><div class="notice">Take clear photos of the damage. Final pricing is confirmed after inspection.</div>
+<input id="qn" placeholder="Your name"><input id="qp" placeholder="Phone number"><input id="qc" placeholder="Vehicle e.g. VW Polo 2018">
+<select id="qs"><option value="">Select service</option><option>Dent repair</option><option>Scratch repair</option><option>Panelbeating</option><option>Full respray</option><option>Partial respray</option><option>Bumper repair</option><option>Other</option></select>
+<textarea id="qd" placeholder="Describe the damage"></textarea><input type="file" accept="image/*" capture="environment">
+<button onclick="quote()">Send Quote Request on WhatsApp</button><button class="secondary" onclick="show('home')">← Back</button></section>
 
-<section id="booking"><h2>📅 Book a Repair</h2><input id="bn" placeholder="Your name"><input id="bc" placeholder="Vehicle"><input id="bs" placeholder="Service needed"><input id="bd" type="date">
-<p>💳 <b>50% deposit after quote confirmation.</b></p><button onclick="book()">Request Booking</button><button class="back" onclick="show('home')">← Back</button></section>
+<section id="booking"><h2>📅 Book a Repair</h2><input id="bn" placeholder="Your name"><input id="bp" placeholder="Phone number"><input id="bc" placeholder="Vehicle"><input id="bs" placeholder="Service needed"><input id="bd" type="date">
+<div class="notice"><b>50% deposit</b> after your quote is confirmed.</div><button onclick="book()">Request Booking on WhatsApp</button><button class="secondary" onclick="show('home')">← Back</button></section>
 
-<section id="services"><h2>🔧 Services</h2><div class="panel">Dent repair<br><br>Scratch repair<br><br>Panelbeating<br><br>Full respray<br><br>Partial respray<br><br>Bumper repair<br><br>Colour changes<br><br>Polishing & finishing</div>
-<button onclick="show('booking')">📅 Book a Repair</button><button class="back" onclick="show('home')">← Back</button></section>
+<section id="services"><h2>🔧 Services</h2><div class="panel"><span class="pill">Dent repair</span><span class="pill">Scratch repair</span><span class="pill">Panelbeating</span><span class="pill">Full respray</span><span class="pill">Partial respray</span><span class="pill">Bumper repair</span><span class="pill">Colour changes</span><span class="pill">Polishing</span><p class="muted">Get a quote after vehicle assessment.</p></div>
+<button onclick="show('quote')">📸 Get a Quote</button><button class="secondary" onclick="show('home')">← Back</button></section>
 
-<section id="track"><h2>🚗 Track My Car</h2><div class="status">✓ Booking confirmed</div><div class="status">✓ Vehicle received</div><div class="status">→ Repair / panelbeating</div><div class="status">○ Paint</div><div class="status">○ Quality check</div><div class="status">○ Ready for collection</div>
-<button onclick="wa('Hi GG Garage, I would like an update on my vehicle.')">💬 Ask for an Update</button><button class="back" onclick="show('home')">← Back</button></section>
+<section id="track"><h2>🚗 Track My Car</h2><p class="muted">Save your job reference and current repair stage on this phone.</p>
+<input id="jr" placeholder="Job reference e.g. GG-1024"><select id="js"><option>Booking confirmed</option><option>Vehicle received</option><option>Repair / panelbeating</option><option>Paint</option><option>Quality check</option><option>Ready for collection</option></select>
+<button onclick="saveJob()">Save Job Status</button><div id="out"></div><button onclick="wa('Hi GG Garage, I would like an update on my vehicle.')">💬 Ask for an Update</button><button class="secondary" onclick="show('home')">← Back</button></section>
 <footer>GG Garage • Mossel Bay • 084 823 3375</footer></div>
 <script>
-function show(id){document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');scrollTo(0,0)}
+const $=x=>document.getElementById(x);function show(id){document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');scrollTo(0,0)}
 function wa(m){location.href='https://wa.me/27848233375?text='+encodeURIComponent(m)}
-function quote(){wa("Hi GG Garage, I would like a quote.%0AVehicle: "+qcar.value+"%0ADamage: "+qdamage.value)}
-function book(){wa("Hi GG Garage, I would like to book a repair.%0AName: "+bn.value+"%0AVehicle: "+bc.value+"%0AService: "+bs.value+"%0APreferred date: "+bd.value+"%0A50%25 deposit after quote confirmation.")}
+function quote(){wa("Hi GG Garage, I would like a quote.\nName: "+$('qn').value+"\nPhone: "+$('qp').value+"\nVehicle: "+$('qc').value+"\nService: "+$('qs').value+"\nDamage: "+$('qd').value)}
+function book(){wa("Hi GG Garage, I would like a booking.\nName: "+$('bn').value+"\nPhone: "+$('bp').value+"\nVehicle: "+$('bc').value+"\nService: "+$('bs').value+"\nPreferred date: "+$('bd').value+"\n50% deposit after quote confirmation.")}
+function saveJob(){let r=$('jr').value.trim();if(!r)return alert('Enter your job reference.');let s=$('js').value;localStorage.setItem('gg_'+r,s);$('out').innerHTML='<div class="status"><b>'+r+'</b><br>Current stage: '+s+'</div>'}
 if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
 </script></body></html>

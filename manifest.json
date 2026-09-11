@@ -3,7 +3,19 @@
   "short_name": "GG Garage",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#090909",
-  "theme_color": "#090909",
-  "description": "GG Garage Mossel Bay - Your Car. Our Craft."
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "description": "GG Garage Mossel Bay",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
