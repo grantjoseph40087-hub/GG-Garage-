@@ -473,12 +473,19 @@ YOUR CAR. OUR CRAFT. 🖤
 const $=x=>document.getElementById(x);
 
 function show(id){
-document.querySelectorAll('section')
-.forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('section').forEach(s=>{
+    s.classList.remove('active');
+  });
 
-$(id).classList.add('active');
+  const page = document.getElementById(id);
 
-window.scrollTo(0,0);
+  if(!page){
+    alert("Page not found: " + id);
+    return;
+  }
+
+  page.classList.add('active');
+  window.scrollTo(0,0);
 }
 
 function wa(message){
