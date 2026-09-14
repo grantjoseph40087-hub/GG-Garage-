@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="GG Garage Mossel Bay - Panelbeating, spray painting, dent and scratch repair.">
+<link rel="manifest" href="manifest.json">
+<title>GG Garage | Mossel Bay</title>
+<style>
+*{box-sizing:border-box}
+:root{--gold:#f5c542;--gold2:#ffdf6b;--black:#030303;--panel:#0c0c0c}
+html{scroll-behavior:smooth}
+body{
+ margin:0;background:#020202;color:#f5f5f5;font-family:Arial,Helvetica,sans-serif;
+ background-image:
+ repeating-linear-gradient(125deg,rgba(255,255,255,.022) 0,rgba(255,255,255,.022) 1px,transparent 1px,transparent 5px),
+ repeating-linear-gradient(35deg,rgba(255,255,255,.012) 0,rgba(255,255,255,.012) 1px,transparent 1px,transparent 6px),
+ radial-gradient(circle at 50% 0%,rgba(245,197,66,.16),transparent 30%);
+ background-attachment:fixed;
+ overflow-x:hidden;
+}
+body:before{
+ content:"";position:fixed;inset:0;pointer-events:none;
+ background:linear-gradient(105deg,transparent 0%,rgba(255,215,90,.045) 48%,transparent 52%);
+ animation:lightSweep 7s ease-in-out infinite;z-index:9999;
+}
+body:after{
+ content:"";position:fixed;left:-20%;top:18%;width:45%;height:2px;pointer-events:none;
+ background:linear-gradient(90deg,transparent,var(--gold),transparent);
+ box-shadow:0 0 18px var(--gold),0 0 40px rgba(245,197,66,.35);
+ transform:rotate(-16deg);opacity:.18;animation:roadLight 9s linear infinite;z-index:9998;
+}
+@keyframes lightSweep{0%,100%{transform:translateX(-80%)}50%{transform:translateX(80%)}}
+@keyframes roadLight{0%{left:-45%;opacity:0}15%{opacity:.22}50%{left:110%;opacity:.12}100%{left:130%;opacity:0}}
+@keyframes logoPulse{0%,100%{text-shadow:0 0 9px rgba(245,197,66,.55),0 0 28px rgba(245,197,66,.24)}50%{text-shadow:0 0 14px rgba(245,197,66,.9),0 0 42px rgba(245,197,66,.42)}}
+@keyframes floatGlow{0%,100%{transform:translateY(0);opacity:.22}50%{transform:translateY(-7px);opacity:.42}}
+@keyframes cardShine{0%{transform:translateX(-150%)}55%,100%{transform:translateX(150%)}}
+@keyframes scan{0%{top:-20%}100%{top:120%}}
+header{
+ position:relative;overflow:hidden;text-align:center;padding:31px 15px 27px;
+ border-bottom:1px solid rgba(245,197,66,.45);
+ background:linear-gradient(135deg,rgba(255,255,255,.055),transparent 30%),linear-gradient(180deg,#151515,#020202);
+ box-shadow:0 12px 45px rgba(0,0,0,.7);
+}
+header:before{
+ content:"";position:absolute;inset:0;
+ background:repeating-linear-gradient(135deg,transparent 0 8px,rgba(255,255,255,.025) 9px 10px);opacity:.65;
+}
+header:after{
+ content:"";position:absolute;left:-10%;right:-10%;bottom:-23px;height:45px;
+ background:linear-gradient(100deg,transparent 0 18%,rgba(245,197,66,.55) 19% 20%,transparent 21% 50%,rgba(255,255,255,.16) 51% 52%,transparent 53%);
+ transform:skewY(-5deg);
+}
+.logo{
+ position:relative;z-index:1;font-size:38px;letter-spacing:8px;font-weight:1000;
+ color:var(--gold);font-style:italic;animation:logoPulse 3.2s ease-in-out infinite;
+}
+.logo:before{
+ content:"GG";display:inline-block;margin-right:9px;font-size:18px;letter-spacing:-2px;
+ border:2px solid var(--gold);border-radius:5px;padding:5px 4px;vertical-align:8px;
+ transform:skew(-8deg);box-shadow:0 0 12px rgba(245,197,66,.28);
+}
+.tag{position:relative;z-index:1;font-size:10px;letter-spacing:6px;color:#d0d0d0;margin-top:8px}
+.wrap{max-width:720px;margin:auto;padding:18px}
+.wrap>div:first-child{position:relative;text-shadow:0 0 12px rgba(245,197,66,.12)}
+.hero{
+ position:relative;min-height:405px;padding:30px 5px 25px;display:flex;flex-direction:column;justify-content:flex-end;
+ overflow:hidden;border-radius:5px;margin-top:5px;
+ background:
+  linear-gradient(180deg,transparent 0%,rgba(0,0,0,.10) 20%,rgba(0,0,0,.93) 76%),
+  radial-gradient(ellipse at 78% 25%,rgba(245,197,66,.30),transparent 22%),
+  linear-gradient(135deg,#151515 0%,#050505 50%,#191307 100%);
+ border:1px solid #5a4a19;box-shadow:inset 0 0 80px rgba(245,197,66,.06),0 25px 55px rgba(0,0,0,.65);
+}
+.hero:before{
+ content:"";position:absolute;right:-20px;top:4px;font-size:205px;font-weight:1000;font-style:italic;
+ line-height:1;color:rgba(255,255,255,.026);letter-spacing:-20px;transform:skewX(-8deg);
+ text-shadow:0 0 30px rgba(245,197,66,.04);content:"GG";
+}
+.hero:after{
+ content:"SUPERCAR  •  BODY  •  PAINT";position:absolute;top:22px;right:18px;color:#858585;
+ font-size:9px;letter-spacing:3px;border-bottom:1px solid rgba(245,197,66,.35);padding-bottom:7px;
+}
+.hero .supercar{
+ position:absolute;left:4%;right:4%;top:78px;height:170px;opacity:.22;filter:drop-shadow(0 0 18px rgba(245,197,66,.25));
+ pointer-events:none;animation:floatGlow 4.5s ease-in-out infinite;
+}
+.supercar .body{
+ position:absolute;left:8%;right:8%;bottom:42px;height:63px;
+ background:linear-gradient(165deg,transparent 0 8%,rgba(245,197,66,.75) 9% 11%,rgba(245,197,66,.15) 12% 36%,rgba(0,0,0,.2) 37% 100%);
+ clip-path:polygon(0 67%,8% 47%,25% 39%,38% 5%,61% 0,75% 22%,92% 36%,100% 67%,96% 83%,4% 83%);
+}
+.supercar .window{
+ position:absolute;left:37%;top:22px;width:27%;height:43px;
+ background:linear-gradient(135deg,rgba(255,255,255,.35),rgba(0,0,0,.35));
+ clip-path:polygon(0 100%,19% 0,78% 0,100% 100%);
+ border:1px solid rgba(245,197,66,.5);
+}
+.supercar .wheel{position:absolute;bottom:21px;width:43px;height:43px;border-radius:50%;background:#030303;border:3px solid #777;box-shadow:0 0 0 5px #111,0 0 16px rgba(245,197,66,.25)}
+.supercar .w1{left:17%}.supercar .w2{right:17%}
+.supercar .light{position:absolute;width:35px;height:5px;border-radius:50%;background:#ffe98a;box-shadow:0 0 14px 5px rgba(245,197,66,.8);bottom:83px}
+.supercar .l1{left:10%}.supercar .l2{right:10%}
+.hero .scanline{
+ position:absolute;left:0;right:0;height:2px;top:-20%;background:linear-gradient(90deg,transparent,rgba(245,197,66,.28),transparent);
+ box-shadow:0 0 14px rgba(245,197,66,.25);animation:scan 5.5s linear infinite;pointer-events:none;
+}
+.hero h1{position:relative;z-index:2;font-size:43px;line-height:.98;margin:0 0 14px;letter-spacing:-1.5px;text-shadow:0 5px 18px #000}
+.hero h1:after{content:"";display:block;width:95px;height:3px;margin-top:15px;background:linear-gradient(90deg,var(--gold),transparent);box-shadow:0 0 12px rgba(245,197,66,.6)}
+.hero p{position:relative;z-index:2;color:#b8b8b8;line-height:1.65;max-width:620px;font-size:16px}
+.badge{
+ position:relative;z-index:2;width:max-content;padding:9px 15px;border-radius:3px;border:1px solid #8b7221;
+ color:var(--gold2);background:linear-gradient(90deg,rgba(245,197,66,.12),rgba(245,197,66,.025));
+ font-size:11px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;
+ box-shadow:inset 0 0 18px rgba(245,197,66,.04),0 0 14px rgba(245,197,66,.08);
+}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:13px}
+.card{
+ min-height:145px;position:relative;overflow:hidden;padding:18px;cursor:pointer;
+ background:linear-gradient(145deg,rgba(255,255,255,.06),transparent 34%),repeating-linear-gradient(135deg,rgba(255,255,255,.018) 0 2px,transparent 2px 7px),linear-gradient(145deg,#171717,#070707);
+ border:1px solid #353535;border-radius:5px;box-shadow:0 15px 38px rgba(0,0,0,.55);
+ transition:transform .22s,border-color .22s,box-shadow .22s;
+}
+.card:before{content:"";position:absolute;left:-55px;top:-35px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(245,197,66,.11),transparent 65%);pointer-events:none}
+.card:after{content:"";position:absolute;width:115px;height:2px;right:-20px;bottom:13px;background:linear-gradient(90deg,transparent,var(--gold));transform:rotate(-18deg);opacity:.7;box-shadow:0 0 8px rgba(245,197,66,.35)}
+.card .shine{position:absolute;top:-70%;left:-30%;width:25%;height:240%;background:rgba(255,255,255,.08);transform:rotate(25deg);animation:cardShine 6s ease-in-out infinite;pointer-events:none}
+.card:active{transform:scale(.965);border-color:var(--gold);box-shadow:0 0 22px rgba(245,197,66,.15)}
+.ico{font-size:32px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.75))}
+.card b{display:block;margin-top:10px;font-size:17px;letter-spacing:.2px}.card small{display:block;color:#9d9d9d;margin-top:6px;line-height:1.4}
+button{
+ width:100%;padding:15px;border:0;border-radius:3px;font-weight:900;font-size:15px;margin-top:12px;cursor:pointer;
+ letter-spacing:.7px;text-transform:uppercase;background:linear-gradient(135deg,#ffe071,var(--gold));color:#111;
+ box-shadow:0 9px 24px rgba(0,0,0,.45),inset 0 1px rgba(255,255,255,.35);position:relative;overflow:hidden;
+ transition:transform .2s,filter .2s,box-shadow .2s;
+}
+button:after{content:"";position:absolute;top:-80%;left:-35%;width:30%;height:260%;background:rgba(255,255,255,.22);transform:rotate(25deg);transition:.5s}
+button:hover:after{left:115%}button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+button.secondary{background:linear-gradient(145deg,#292929,#111);color:#eee;border:1px solid #3b3b3b}
+button.whatsapp{background:linear-gradient(135deg,#28d96f,#159b4c);color:#fff}
+input,textarea,select{
+ width:100%;padding:14px;margin:7px 0 10px;background:linear-gradient(145deg,#111,#070707);color:#fff;
+ border:1px solid #353535;border-radius:4px;font-size:15px;box-shadow:inset 0 0 15px rgba(0,0,0,.45)
+}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 1px rgba(245,197,66,.18),0 0 18px rgba(245,197,66,.08)}
+section{display:none}section.active{display:block}
+section h2{font-size:28px;letter-spacing:-.5px;border-left:4px solid var(--gold);padding-left:12px;text-shadow:0 3px 15px #000}
+.notice{background:linear-gradient(135deg,rgba(245,197,66,.09),rgba(15,15,15,.95));border:1px solid #5b4b1d;box-shadow:inset 0 0 30px rgba(245,197,66,.025),0 12px 30px rgba(0,0,0,.35);padding:14px;border-radius:12px;margin:14px 0;color:#ddd;line-height:1.5}
+.status{background:linear-gradient(90deg,#171717,#0a0a0a);border-left:4px solid var(--gold);box-shadow:0 8px 20px rgba(0,0,0,.35);padding:14px;margin:9px 0;border-radius:8px}
+.pill{display:inline-block;padding:8px 11px;border-radius:20px;background:linear-gradient(145deg,#262626,#101010);border:1px solid #3b3b3b;margin:4px;color:#ddd;font-size:13px;box-shadow:inset 0 0 12px rgba(245,197,66,.03)}
+.photo-box{border:1px dashed #6a5920;border-radius:14px;padding:18px;text-align:center;margin:10px 0;color:#aaa;background:rgba(245,197,66,.025)}
+.preview{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.preview img{width:100%;height:90px;object-fit:cover;border-radius:9px;border:1px solid #333}
+.timeline{margin:18px 0}.step{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #242424}
+.dot{width:13px;height:13px;border-radius:50%;background:#444;flex-shrink:0}.step.active .dot{background:var(--gold);box-shadow:0 0 15px var(--gold)}.step.active b{color:var(--gold2)}
+.rating{font-size:30px;letter-spacing:5px;color:var(--gold2);margin:12px 0;text-shadow:0 0 12px rgba(245,197,66,.4)}
+footer{text-align:center;color:#777;padding:35px 0 20px;font-size:12px;line-height:1.7;border-top:1px solid #262016;margin-top:20px}
+.panel{border-radius:5px;border:1px solid #303030;padding:18px;background:repeating-linear-gradient(135deg,rgba(255,255,255,.012) 0 2px,transparent 2px 7px),linear-gradient(145deg,#171717,#080808);box-shadow:0 15px 38px rgba(0,0,0,.48),inset 0 0 25px rgba(245,197,66,.018)}
+.quote-result{background:linear-gradient(145deg,#211d0e,#080808);border:1px solid #705c1d;border-radius:16px;padding:18px;margin:12px 0;display:none;box-shadow:0 0 25px rgba(245,197,66,.08)}
+.quote-result .price{font-size:28px;font-weight:900;color:var(--gold2);margin:8px 0;text-shadow:0 0 12px rgba(245,197,66,.28)}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.admin-tools{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}.admin-tools button{margin-top:0}
+@media(max-width:430px){
+ .logo{font-size:31px;letter-spacing:6px}.logo:before{font-size:14px;vertical-align:5px;padding:4px 3px}
+ .hero{min-height:410px}.hero h1{font-size:37px}.hero:after{font-size:8px;letter-spacing:2px}
+ .grid{gap:9px}.card{padding:14px;min-height:125px}.calc-grid{grid-template-columns:1fr}
+ .supercar{transform:scale(.92);transform-origin:center top;opacity:.56}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<header><div class="logo">GG GARAGE</div><div class="tag">YOUR CAR. OUR CRAFT.</div></header>
+<div class="wrap">
+<div style="text-align:center;padding:9px 0 2px;color:#777;font-size:9px;letter-spacing:4px">EXOTIC AUTOMOTIVE • MOSSEL BAY • EST. GG</div>
+
+<section id="home" class="active">
+<div class="hero">
+  <div class="scanline"></div>
+  <div class="supercar" aria-hidden="true">
+    <div class="body"></div><div class="window"></div>
+    <div class="wheel w1"></div><div class="wheel w2"></div>
+    <div class="light l1"></div><div class="light l2"></div>
+  </div>
+  <div class="badge">📍 MOSSEL BAY</div>
+  <h1>Give Your Car a New Life.</h1>
+  <p>Professional panelbeating, spray painting, dent and scratch repair. Request your quote directly from your phone.</p>
+</div>
+<div class="grid">
+<div class="card" onclick="show('quote')"><span class="shine"></span><div class="ico">📸</div><b>Get a Quote</b><small>Send your vehicle details and damage photos.</small></div>
+<div class="card" onclick="show('booking')"><span class="shine"></span><div class="ico">📅</div><b>Book a Repair</b><small>Request your preferred repair date.</small></div>
+<div class="card" onclick="show('services')"><span class="shine"></span><div class="ico">🔧</div><b>Our Services</b><small>Panelbeating, paint and more.</small></div>
+<div class="card" onclick="show('track')"><span class="shine"></span><div class="ico">🚗</div><b>Track My Car</b><small>Check your repair stage.</small></div>
+</div>
+<button class="secondary" onclick="show('admin')">🔐 Garage Admin</button>
+<button class="whatsapp" onclick="wa('Hi GG Garage, I would like to enquire about a car repair.')">💬 WhatsApp GG Garage</button>
+<button onclick="show('reviews')">⭐ Customer Reviews</button>
+<div class="panel" style="margin-top:14px">📍 <b>Mossel Bay</b><br>📞 <b>084 823 3375</b><br><span style="color:#999">Panelbeating • Spray Painting • Dent Repair</span></div>
+</section>
+
+<section id="quote">
+<h2>📸 Get a Quote</h2>
+<div class="notice"><b>Fast quote request</b><br>Upload clear photos of the damage. Final pricing is confirmed after vehicle inspection.</div>
+<div class="panel">
+<h3>💰 Quick Estimate</h3>
+<p style="color:#aaa">Get an estimated price before sending your quote request. Final pricing is confirmed after inspection.</p>
+<div class="calc-grid">
+<select id="calcService" onchange="calculateQuote()"><option value="">Select service</option><option value="dent">Dent repair</option><option value="scratch">Scratch repair</option><option value="panel">Panelbeating</option><option value="bumper">Bumper repair</option><option value="partial">Partial respray</option><option value="full">Full respray</option><option value="colour">Colour change</option></select>
+<select id="calcDamage" onchange="calculateQuote()"><option value="">Damage level</option><option value="light">Light</option><option value="medium">Medium</option><option value="heavy">Heavy</option></select>
+</div>
+<div id="calcResult" class="quote-result"><b>Estimated range</b><div id="calcPrice" class="price">R0 – R0</div><small style="color:#aaa">Estimate only — final price after vehicle inspection.</small></div>
+</div>
+<input id="qn" placeholder="Your full name"><input id="qp" placeholder="Phone number"><input id="qc" placeholder="Vehicle make & model"><input id="qy" placeholder="Vehicle year">
+<select id="qs"><option value="">Select service</option><option>Dent repair</option><option>Scratch repair</option><option>Panelbeating</option><option>Full respray</option><option>Partial respray</option><option>Bumper repair</option><option>Colour change</option><option>Other</option></select>
+<textarea id="qd" placeholder="Describe the damage..."></textarea>
+<div class="photo-box">📷 <b>Add damage photos</b><br><small>Select up to 5 photos</small><input id="photos" type="file" accept="image/*" multiple onchange="previewPhotos()"><div id="preview" class="preview"></div></div>
+<button onclick="quote()">💬 Send Quote Request</button><button class="secondary" onclick="show('home')">← Back</button>
+</section>
+
+<section id="booking">
+<h2>📅 Book a Repair</h2>
+<input id="bn" placeholder="Your full name"><input id="bp" placeholder="Phone number"><input id="bc" placeholder="Vehicle make & model">
+<select id="bs"><option value="">Select service</option><option>Dent repair</option><option>Scratch repair</option><option>Panelbeating</option><option>Full respray</option><option>Partial respray</option><option>Bumper repair</option><option>Other</option></select>
+<label>Preferred date</label><input id="bd" type="date"><textarea id="bnote" placeholder="Anything else we should know?"></textarea>
+<div class="notice"><b>💰 Deposit policy</b><br>A 50% deposit is required after your quote has been confirmed.</div>
+<button onclick="book()">💬 Request Booking</button><button class="secondary" onclick="show('home')">← Back</button>
+</section>
+
+<section id="services">
+<h2>🔧 Our Services</h2><div class="panel"><span class="pill">Dent repair</span><span class="pill">Scratch repair</span><span class="pill">Panelbeating</span><span class="pill">Full respray</span><span class="pill">Partial respray</span><span class="pill">Bumper repair</span><span class="pill">Colour changes</span><span class="pill">Polishing</span><p style="color:#aaa">Every vehicle is assessed before the final price is confirmed.</p></div>
+<button onclick="show('quote')">📸 Request a Quote</button><button class="secondary" onclick="show('home')">← Back</button>
+</section>
+
+<section id="track">
+<h2>🚗 Track My Car</h2><p style="color:#aaa">Enter the job reference supplied by GG Garage.</p>
+<input id="jr" placeholder="Job reference e.g. GG-1024"><button onclick="trackJob()">🔎 Check Job Status</button><div id="out"></div>
+<div class="timeline" id="timeline"></div>
+<button class="whatsapp" onclick="wa('Hi GG Garage, I would like an update on my vehicle.')">💬 Ask GG Garage for an Update</button><button class="secondary" onclick="show('home')">← Back</button>
+</section>
+
+<section id="admin">
+<h2>🔐 GG Garage Admin</h2>
+<div class="notice"><b>Garage Job Manager</b><br>Manage your current vehicle jobs from this device.</div>
+<div class="panel">
+<input id="an" placeholder="Customer name"><input id="ac" placeholder="Vehicle make & model"><input id="ar" placeholder="Job reference"><input id="ap" type="number" placeholder="Quote amount (R)"><input id="adp" type="number" placeholder="Deposit received (R)">
+<select id="ast"><option>Quote requested</option><option>Booking confirmed</option><option>Vehicle received</option><option>Panelbeating</option><option>Paint preparation</option><option>Painting</option><option>Quality check</option><option>Ready for collection</option><option>Collected</option></select>
+<button onclick="addJob()">➕ Save Job</button></div>
+<h3>📊 Garage Overview</h3><div class="admin-tools"><button class="secondary" onclick="showJobSummary()">📊 Job Summary</button><button class="secondary" onclick="exportJobs()">📤 Export Jobs</button></div>
+<div id="jobSummary"></div><h3>📋 Current Jobs</h3><div id="jobs"></div><button class="secondary" onclick="show('home')">← Back to Home</button>
+</section>
+
+<section id="reviews">
+<h2>⭐ Customer Reviews</h2><div class="panel"><div class="rating">★★★★★</div><p>Love your GG Garage experience?</p><p style="color:#aaa">Send your feedback to us on WhatsApp and help other customers discover GG Garage.</p></div>
+<button onclick="wa('Hi GG Garage, I would like to leave a customer review.')">⭐ Leave a Review</button><button class="secondary" onclick="show('home')">← Back</button>
+</section>
+
+<footer><b>GG GARAGE</b><br>Mossel Bay • Western Cape<br>084 823 3375<br><br>YOUR CAR. OUR CRAFT. 🖤</footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const STATUSES=['Quote requested','Booking confirmed','Vehicle received','Panelbeating','Paint preparation','Painting','Quality check','Ready for collection','Collected'];
+
+function show(id){
+ document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+ const page=$(id); if(!page){alert('Page not found: '+id);return}
+ page.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'});
+ if(id==='admin'){renderJobs();showJobSummary();}
+}
+function wa(message){window.location.href='https://wa.me/27848233375?text='+encodeURIComponent(message)}
+function previewPhotos(){
+ const files=$('photos').files,preview=$('preview');preview.innerHTML='';
+ for(let i=0;i<Math.min(files.length,5);i++){const reader=new FileReader();reader.onload=e=>{const img=document.createElement('img');img.src=e.target.result;preview.appendChild(img)};reader.readAsDataURL(files[i])}
+}
+function calculateQuote(){
+ const service=$('calcService').value,damage=$('calcDamage').value,box=$('calcResult'),price=$('calcPrice');
+ if(!service||!damage){box.style.display='none';return}
+ const base={dent:{light:900,medium:1600,heavy:2600},scratch:{light:800,medium:1400,heavy:2300},panel:{light:1800,medium:3200,heavy:4800},bumper:{light:1200,medium:2200,heavy:3500},partial:{light:2500,medium:3800,heavy:5200},full:{light:5500,medium:6500,heavy:7500},colour:{light:6500,medium:7500,heavy:9000}};
+ const low=base[service][damage],high=Math.round(low*1.18/50)*50;
+ price.textContent='R'+low.toLocaleString('en-ZA')+' – R'+high.toLocaleString('en-ZA');box.style.display='block';
+}
+function quote(){
+ const name=$('qn').value.trim(),phone=$('qp').value.trim(),car=$('qc').value.trim(),year=$('qy').value.trim(),service=$('qs').value,damage=$('qd').value.trim(),photos=$('photos').files;
+ if(!name||!phone||!car||!service){alert('Please complete your name, phone, vehicle and service.');return}
+ const ref='GG-'+Date.now().toString().slice(-6);localStorage.setItem('gg_last_quote',ref);
+ const message='🚗 GG GARAGE QUOTE REQUEST\n\nReference: '+ref+'\nName: '+name+'\nPhone: '+phone+'\nVehicle: '+car+'\nYear: '+year+'\nService: '+service+'\nDamage: '+(damage||'Not specified')+'\nPhotos selected: '+Math.min(photos.length,5)+'\n\nPlease advise on the next step.';
+ alert('Quote request '+ref+' is ready!\n\nWhatsApp will open next.\n\nPlease attach your damage photos in WhatsApp.');wa(message);
+}
+function book(){
+ const name=$('bn').value.trim(),phone=$('bp').value.trim(),car=$('bc').value.trim(),service=$('bs').value,date=$('bd').value,note=$('bnote').value.trim();
+ if(!name||!phone||!car||!service||!date){alert('Please complete all required booking details.');return}
+ wa('📅 GG GARAGE BOOKING REQUEST\n\nName: '+name+'\nPhone: '+phone+'\nVehicle: '+car+'\nService: '+service+'\nPreferred date: '+date+'\nNotes: '+(note||'None')+'\n\n50% deposit after quote confirmation.');
+}
+function getJobs(){return JSON.parse(localStorage.getItem('gg_jobs')||'[]')}
+function setJobs(jobs){localStorage.setItem('gg_jobs',JSON.stringify(jobs))}
+function addJob(){
+ const name=$('an').value.trim(),car=$('ac').value.trim(),ref=$('ar').value.trim(),quote=Number($('ap').value||0),deposit=Number($('adp').value||0),status=$('ast').value;
+ if(!name||!car||!ref){alert('Please enter the customer, vehicle and job reference.');return}
+ const jobs=getJobs();if(jobs.some(j=>j.ref.toLowerCase()===ref.toLowerCase())){alert('That job reference already exists. Please use a unique reference.');return}
+ jobs.push({name,car,ref,quote,deposit,status,created:new Date().toLocaleString()});setJobs(jobs);
+ ['an','ac','ar','ap','adp'].forEach(id=>$(id).value='');renderJobs();alert('Job '+ref+' saved successfully! 🔥');
+}
+function renderJobs(){
+ const box=$('jobs');if(!box)return;const jobs=getJobs();
+ if(!jobs.length){box.innerHTML='<div class="panel">No jobs saved yet.</div>';return}
+ box.innerHTML=jobs.map((job,index)=>{
+  const balance=Number(job.quote)-Number(job.deposit);
+  return '<div class="panel" style="margin-bottom:12px"><div style="color:#f5c542;font-weight:900">'+escapeHtml(job.ref)+'</div><p><b>Customer:</b> '+escapeHtml(job.name)+'<br><b>Vehicle:</b> '+escapeHtml(job.car)+'<br><b>Status:</b> '+escapeHtml(job.status)+'</p><p><b>Quote:</b> R'+job.quote.toFixed(2)+'<br><b>Deposit:</b> R'+job.deposit.toFixed(2)+'<br><b>Balance:</b> R'+balance.toFixed(2)+'</p><small style="color:#777">Created: '+escapeHtml(job.created)+'</small><button onclick="changeStatus('+index+')">🔄 Update Status</button><button onclick="sendJob('+index+')" class="whatsapp">💬 WhatsApp Customer</button><button onclick="deleteJob('+index+')" class="secondary">🗑️ Delete Job</button></div>';
+ }).join('');
+}
+function showJobSummary(){
+ const jobs=getJobs(),box=$('jobSummary');if(!jobs.length){box.innerHTML='<div class="notice">No jobs saved yet.</div>';return}
+ const total=jobs.length,active=jobs.filter(j=>!['Collected','Ready for collection'].includes(j.status)).length,revenue=jobs.reduce((s,j)=>s+Number(j.quote||0),0),deposits=jobs.reduce((s,j)=>s+Number(j.deposit||0),0);
+ box.innerHTML='<div class="panel"><b>Total jobs:</b> '+total+'<br><b>Active jobs:</b> '+active+'<br><b>Total quoted:</b> R'+revenue.toFixed(2)+'<br><b>Deposits received:</b> R'+deposits.toFixed(2)+'</div>';
+}
+function exportJobs(){
+ const jobs=getJobs();if(!jobs.length){alert('No jobs to export.');return}
+ const text=jobs.map(j=>[j.ref,j.name,j.car,j.quote,j.deposit,j.status,j.created].join('\t')).join('\n');
+ const blob=new Blob([text],{type:'text/plain'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='GG-Garage-Jobs.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function changeStatus(index){
+ const jobs=getJobs(),current=jobs[index];if(!current)return;
+ const next=prompt('Enter new status:\n\n'+STATUSES.map((s,i)=>(i+1)+'. '+s).join('\n'),current.status);if(next===null)return;
+ const match=STATUSES.find(s=>s.toLowerCase()===next.trim().toLowerCase());if(!match){alert('Please enter one of the listed statuses exactly.');return}
+ jobs[index].status=match;setJobs(jobs);renderJobs();alert('Status updated to '+match+' 🔥');
+}
+function sendJob(index){
+ const job=getJobs()[index];if(!job)return;const balance=Number(job.quote)-Number(job.deposit);
+ wa('🚗 GG GARAGE JOB UPDATE\n\nJob: '+job.ref+'\nVehicle: '+job.car+'\nCurrent status: '+job.status+'\nQuote: R'+Number(job.quote).toFixed(2)+'\nBalance: R'+balance.toFixed(2)+'\n\nPlease contact GG Garage if you have any questions.');
+}
+function deleteJob(index){if(!confirm('Delete this job?'))return;const jobs=getJobs();jobs.splice(index,1);setJobs(jobs);renderJobs()}
+function trackJob(){
+ const ref=$('jr').value.trim();if(!ref){alert('Enter your job reference.');return}
+ const job=getJobs().find(j=>j.ref.toLowerCase()===ref.toLowerCase());
+ if(!job){$('out').innerHTML='<div class="status"><b>Job not found</b><br>Please check your reference or contact GG Garage.</div>';renderTimeline(-1);return}
+ $('out').innerHTML='<div class="status"><b>'+escapeHtml(job.ref)+'</b><br>Vehicle: '+escapeHtml(job.car)+'<br>Current stage: <b>'+escapeHtml(job.status)+'</b></div>';renderTimeline(STATUSES.indexOf(job.status));
+}
+function renderTimeline(activeIndex){$('timeline').innerHTML=STATUSES.map((s,i)=>'<div class="step '+(i<=activeIndex?'active':'')+'"><div class="dot"></div><b>'+s+'</b></div>').join('')}
+function escapeHtml(value){return String(value).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+renderJobs();renderTimeline(-1);
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{})}
+</script>
+</body>
+</html>
